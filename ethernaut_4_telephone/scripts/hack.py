@@ -1,10 +1,9 @@
 from brownie import interface, accounts, config, Exploit
 
-INSTANCE_ADDRESS = "0x244b9D6D5F300D80BB10612E1c7E52a4Ac6A9842"
+INSTANCE_ADDRESS = "0xF3654BAB9C8CbF7C2B44D69af0F56Ab54e72e918"
 ACCOUNT = accounts.add(config["wallets"]["from_key"])
 
 def hack():
-    i = 0
     # grab the Telephone contract Object
     instance_contract = interface.ITelephone(INSTANCE_ADDRESS)
     # deploy the exploit contract

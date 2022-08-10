@@ -1,6 +1,6 @@
 pragma solidity 0.8.8;
 
-interface ITelephone {
-    function changeOwner(address _owner) external;
+interface IDelegation {
     function owner() view external returns(address);
+    function pwn() external;
 }

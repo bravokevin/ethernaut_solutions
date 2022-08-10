@@ -149,9 +149,17 @@ ETHERNAUT_CONTRACT_ADDRESS = "0xD991431D8b033ddCb84dAD257f4821E9d5b38C33"
 def submit_the_contract():
     ethernaut_contract = Contract.from_abi("Ethernaut",ETHERNAUT_CONTRACT_ADDRESS, ETHERNAUT_ABI)
     print("Submiting instance")
-    ethernaut_contract.submitLevelInstance(INSTANCE_ADDRESS, {"from": ACCOUNT})
-    print("Instance submitted. Level passed. WOHOOO!")
-    print("refresh the page of ethernaut")
+    tx = ethernaut_contract.submitLevelInstance(
+        INSTANCE_ADDRESS, 
+        {"from": ACCOUNT}
+    )
+
+
+    if("LevelCompletedLog"  in tx.events):
+        print("Instance submitted. Level passed. WOHOOO!")
+        print("refresh the page of ethernaut")
+    else:
+        print("Instance submitted. But you don't break the level :(")
 
 
 def main():
